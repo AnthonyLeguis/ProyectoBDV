@@ -1,5 +1,14 @@
-import mostrarElementos from './src/js/helpers/mostrarElementos';
+const mostrarContenido = document.querySelector('.mostrarContenido');
+const moverDivForm = document.querySelector('.moverDivForm');
 
-document.addEventListener('DOMContentLoaded', () => {    
-    mostrarElementos()
-});
+
+const showElements =  () => {
+  
+    setTimeout(() => {
+      mostrarContenido.classList.add('visible');
+    }, 500);
+  
+    setTimeout(() => {
+      moverDivForm.classList.add('visible');
+    }, 400);
+}
