@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app/src/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <link rel="stylesheet" href="./admin.css" />
+    <title>Admin Panel SMGI</title>
+</head>
+<body>
+
+    <main class="row main w-100 container-fluid overflow-hidden p-4 m-0 col-12 ">
+
+        <div class="col-12 h-25 ">
+            
+            <h1 class="titulo text-white text-center mt-5 mb-3">BDVENLINEA PERSONAS</h1>
+            
+            <figure class="text-center ">
+                <a href="#" type="button" class="figure-home-a">
+                    <img src="/app/public/assets/img/SMGI-bg-transparent.png" alt="Logo_sistema"
+                    class="figure-home rounded-circle ">
+                </a>
+            </figure>
+            <!-- <aside class="col-4" id="aside-admin">
+                <div class="btn-group row" role="group" aria-label="Barra de herramientas">
+                    <button type="button" class="button-aside btn btn-primary dropdown-toggle col-12" data-bs-toggle="dropdown" 
+                    aria-expanded="false">Admin
+                    </button>
+                    <ul class="dropdown-menu col-12">
+                        <li><a class="dropdown-item col-12" href="#">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                      </ul>
+                  </div>
+            </aside> -->
+            <div class="wrapper">
+
+                <aside id="sidebar">
+                    <div class="d-flex">
+                        <button id="toggle-btn" type="button">
+                            <i class="lni lni-grid-alt"></i>
+                        </button>
+                        <div class="sidebar-logo">
+                            <a href="#">Grupoxxxx</a>
+                        </div>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-user"></i>
+                                <span>Perfil Admin</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-cog"></i>
+                                <span>configuracion</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-dashboard"></i>
+                                <span>Perfil Admin</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link has-dropdown collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                                <i class="lni lni-protection"></i>
+                                <span>Auth</span>
+                            </a>
+                            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Notificacion de Eventos</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Modulo dashboard configurado</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link has-dropdown collapsed" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                                <i class="lni lni-protection"></i>
+                                <span>Rellenar</span>
+                            </a>
+                            <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                                        Two Links
+                                    </a>
+                                    <ul id="multi-two" class="sidebar-dropdown has-dropdown collapsed">
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 1</a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-popup"></i>
+                                <span>Notificacion</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="sidebar-footer">
+                        <a href="#" class="sidebar-link">
+                            <i class="lni lni-exit"></i>
+                            <span></span>
+                        </a>
+                    </div>
+
+                </aside>
+            </div>
+        
+        </div>
+
+    </main>
+
+    
+
+    <script type="text/javascript" src="/app/src/js/jquery/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/app/src/js/popper/popper.min.js"></script>
+    <script type="text/javascript" src="/app/src/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./admin.js"></script>
+</body>
+</html>
