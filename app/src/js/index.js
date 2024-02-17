@@ -1,4 +1,4 @@
-import mostrarElementos from './helpers/mostrarElementos';
+import mostrarElementos from './src/js/helpers/mostrarElementos';
 
 document.addEventListener('DOMContentLoaded', () => {    
     mostrarElementos()
