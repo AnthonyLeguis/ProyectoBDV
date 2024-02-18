@@ -98,6 +98,7 @@ body {
 
 #toggle-btn {
     background-color: transparent;
+    color: var(--var-fifth-text);
     cursor: pointer;
     border: 0;
     padding: 1rem 1.5rem;
