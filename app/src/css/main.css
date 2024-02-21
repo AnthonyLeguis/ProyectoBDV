@@ -137,6 +137,11 @@
     display: none;
 }
 
+.icon-tabler {
+    width: 33px;
+    height: 25px;
+}
+
 
 figure {
     width: 500px;
@@ -170,6 +175,31 @@ figure {
 }
 
 @media (max-width: 960px) {
+
+    .main {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .div-titulo {
+        height: 150px;
+        margin: 0 auto;
+
+    }
+
+    .titulo {
+        font-size: 40px;
+        min-width: 100%;
+        height: 90px;
+        margin: auto auto;
+        overflow: hidden;
+        white-space: wrap;
+        transition: 0.3s ease-in-out, filter 0.2s ease-in-out, transform 0.2s ease-in-out;;
+    }
+
+    .div-figure {
+        display: none;    
+    }
     .figure {
         display: none;    
     }
@@ -190,20 +220,21 @@ figure {
     .main{
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 10px;
     }
 
     .div-titulo {
         height: 100px;
         margin: 50px 0;
+
     }
 
     .titulo {
         font-size: 30px;
-        max-width: 100%; /* Ajusta este valor según la longitud del texto */
+        min-width: 100%;
+        height: 90px;
         overflow: hidden;
-        /* text-overflow:clip; */
         white-space: wrap;
         transition: 0.3s ease-in-out, filter 0.2s ease-in-out, transform 0.2s ease-in-out;;
     }
@@ -215,9 +246,8 @@ figure {
     .figure.visible {
         display: none;
     }
-
-    .figure-img {
-        display: none;
+    .div-figure {
+        display: none;    
     }
 
     .form-span-text , .form-btn-text{
@@ -255,7 +285,7 @@ figure {
     }
  
     .div-form {
-        min-width: 400px;
+        min-width: 350px;
         height: auto;
         margin: 0 auto;
         margin-top: 30px;
@@ -298,31 +328,48 @@ figure {
     }
 
 }
+@media (max-width: 600px) {
+
+    .titulo {
+        font-size: 20px;
+    }
+
+}
 
 @media (max-width: 480px) {
     
     .div-titulo {
         margin: 40px 0 15px 0;
-
+        min-width: fit-content;
     }
 
     .titulo {
         font-size: 18px;
-        max-width: 100%; /* Ajusta este valor según la longitud del texto */
-        overflow: hidden;
-        text-overflow:clip;
+        min-width: fit-content;
         white-space: nowrap;   
     }
 
     .div-form {
+        min-width: 300px;
         transform: translateX(0%); 
-        transition: transform 1s ease-in-out; 
+        transition: transform 1s ease-in-out;
+
     }
     
     .div-form.visible {
         animation-delay: 0.7s;
         transform: translateX(0%); 
     }
+
+    .form-input {
+        letter-spacing: 1px;
+        font-size:small;
+    }
+    
+    .div-figure {
+        display: none;    
+    }
+
     
 }
 
