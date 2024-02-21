@@ -1,57 +1,17 @@
 const mostrarContenido = document.querySelector('.content-form-img');
 const moverDivForm = document.querySelector('.div-form');
 const moverDivFigure = document.querySelector('.figure');
-const validacionInputs = document.querySelectorAll('.form-input');
+const formulario = document.querySelector('#form');
+const userLogin = document.querySelector('#input-user');
+const passwordLogin = document.querySelector('#input-password');
+const mensajeLogin = document.querySelector('#resultadoLogin');
+const btnLogin = document.querySelector('#btn-login1');
+const btnLogin2 = document.querySelector('#btn-login2');
 
-const expresiones = {
-    usuario: /^[a-zA-Z]+$/,
-    contrasena: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/,
-};
+document.addEventListener('DOMContentLoaded', () => {
 
-validacionInputs.forEach((input) => {
-
-    input.addEventListener('input', () => {
-      const { value } = input;
-      const regex = expresiones[input.name];
-      const isValid = regex.test(value);
-  
-      if (isValid) {
-        input.classList.remove('invalid');
-        input.classList.add('valid');
-      } else {
-        input.classList.add('invalid');
-        input.classList.remove('valid');
-      }
-  
-      // Mostrar mensajes de error específicos
-      const errorElement = document.createElement('p');
-      errorElement.classList.add('error-message');
-  
-      if (input.classList.contains('invalid')) {
-        switch (input.name) {
-          case 'usuario':
-            errorElement.textContent = 'El usuario solo puede contener letras.';
-            break;
-          case 'contrasena':
-            errorElement.textContent = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula, un número y un símbolo.';
-            break;
-          default:
-            break;
-        }
-        input.after(errorElement);
-      } else {
-        // Eliminar mensaje de error anterior
-        const existingError = document.querySelector('.error-message');
-        if (existingError) {
-          existingError.remove();
-        }
-      }
-    });
-});
-
-
-function showElements() {
-    
+  function showElements() {
+      
     setTimeout(() => {
         mostrarContenido.classList.add('visible');
     }, 500);
@@ -60,6 +20,34 @@ function showElements() {
         moverDivForm.classList.add('visible');
         moverDivFigure.classList.add('visible');
     }, 550);
-};
+  };
 
-document.addEventListener('DOMContentLoaded', showElements);
+  showElements()
+
+});
+
+const usuario = /^[a-zA-Z0-9]+$/;
+const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/;
+
+function validarInput(input, regex) {
+  const valor = input.value;
+  const valido = regex.test(valor);
+
+  input.classList.toggle("form-input-success", valido);
+  input.classList.toggle("form-input-danger", !valido);
+
+  btnLogin.disabled = !valido;
+  btnLogin2.disabled = !valido;
+}
+
+userLogin.addEventListener("input", () => {
+  validarInput(userLogin, usuario);
+});
+
+passwordLogin.addEventListener("input", () => {
+  validarInput(passwordLogin, password);
+});
+
+
+
+

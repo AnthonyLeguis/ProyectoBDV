@@ -85,7 +85,7 @@
     font-size:larger;
     font-weight: bolder;
     border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: transparent; 
     transition: border-color .2s ease-in-out;
 }
 
@@ -98,13 +98,31 @@
     border: 2px solid var(--var-ninth); 
 }
 
-.form-input.valid {
-    border-color: var(--var-tenth);
-}
+.form-input-danger {
+    border: 1.5px solid rgba(255, 255, 255, 0.74);
+    outline: 2px solid rgba(255, 0, 0, 0.904);
+    margin: 2px;
   
-.form-input.invalid {
-    border-color: var(--var-eleventh);
 }
+
+.form-input-danger:focus {
+    outline: 2px solid rgba(255, 0, 0, 0.904);
+    border: 1.5px solid rgba(255, 255, 255, 0.74);
+    
+}
+
+.form-input-success {
+    border: 1.5px solid rgba(255, 255, 255, 0.74);
+    outline: 2px solid rgba(0, 202, 0, 0.87);
+    margin: 2px;
+
+}
+
+.form-input-success:focus {
+    outline: 2px solid rgba(0, 202, 0, 0.87);
+    border: 1.5px solid rgba(255, 255, 255, 0.74);
+}
+
 
 
 .login {
@@ -135,6 +153,14 @@
 
 .form-span-icon, .form-btn-icon {
     display: none;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1rem 1rem;
+}
+
+.btn-close {
+    --bs-btn-close-focus-shadow: none;
 }
 
 .icon-tabler {
