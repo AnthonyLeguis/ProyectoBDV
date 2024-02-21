@@ -34,20 +34,19 @@
 
                 <form id="form" class="form-content row g-1  col-md-12 p-3">
 
-                    <div class="input-group mb-1 col-8 col-md-10 container-fluid ">
-                        <span class="form-span form-span-text input-group-text col-4 span-form"
-                            id="fom-usuario">USER</span>
-                        <span class="form-span form-span-icon input-group-text col-4 span-form" id="fom-usuario">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="44"
-                                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                            </svg></span>
-                        <input type="text" id="input-user" class="form-input form-control input-group-lg  "
-                            aria-label="Username" aria-describedby="fom-usuario">
+                    <div class="input-group mb-1 col-8 col-md-10 container-fluid">
+                        <span class="form-span form-span-text input-group-text col-4 span-form" id="fom-usuario">USER</span>
+                        <span class="form-span form-span-icon input-group-text col-4 span-form" id="fom-usuario-icon">
+                          <svg class="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            </svg>
+                        </span>
+                        <input type="text" id="input-user" class="form-input form-control input-group-lg" aria-label="Username" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" 
+                        data-bs-title="no debe contener espacios, solo letras y números">
                     </div>
+
                     <div class="input-group mb-1 col-8 col-md-10 container-fluid ">
                         <span class="form-span form-span-text input-group-text col-4 span-form"
                             id="fom-usuario">PASSWORD</span>
@@ -63,8 +62,8 @@
                             </svg></span>
 
                         <input type="password" id="input-password"
-                            class="form-input form-password form-control input-group-lg" aria-label="password"
-                            aria-describedby="fom-usuario">
+                            class="form-input form-password form-control input-group-lg" aria-label="password" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" 
+                            data-bs-title="Tu contraseña debe tener entre 8 y 16 caracteres; debe incluir letras mayúsculas, minúsculas, números y símbolos">
                     </div>
 
                     <div id="resultadoLogin" class="alert  alert-dismissible fade show d-none">
@@ -75,15 +74,18 @@
                     </div>
 
 
-                    <div class="mt-3 col-md-12 text-center">
+                    <div class="row mt-3 col-md-12 text-center ">
+                        <a href="#" id="recuperarPassword" class="col-12 my-2">¿Olvidó su contraseña?</a>
                         <a href="/app/src/views/AdminPanel/admin.html" type="submit"
                             id="btn-login1"
-                            class="form-btn-text btn btn-primary login w-25 fw-bold text-white text-center">
+                            disabled
+                            class="form-btn-text btn btn-primary login fw-bold text-white text-center mx-auto col-6">
                             LOGIN
                         </a>
                         <button type="submit"
                             id="btn-login2"
-                            class="form-btn-icon btn btn-primary login fw-bold text-white justify-content-center align-items-center col-3">
+                            disabled
+                            class="form-btn-icon btn btn-primary login fw-bold text-white col-12">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login"
                                 width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -99,10 +101,10 @@
                 </form>
             </div>
 
-            <div class="div-figure col-6 col-md-6 justify-content-start align-items-start ">
+            <div class="div-figure col-6 col-md-6 justify-content-center align-items-center ">
 
                 <figure class="figure col-12 col-md-6">
-                    <img src="assets/img/SMGI-bg-transparent.png" alt="Logo_SMGI" class="figure-img text-start ">
+                    <img src="assets/img/SMGI-bg-transparent.png" alt="Logo_SMGI" class="figure-img text-center ">
                 </figure>
             </div>
         </div>

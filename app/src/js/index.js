@@ -8,6 +8,11 @@ const mensajeLogin = document.querySelector('#resultadoLogin');
 const btnLogin = document.querySelector('#btn-login1');
 const btnLogin2 = document.querySelector('#btn-login2');
 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 document.addEventListener('DOMContentLoaded', () => {
 
   function showElements() {
@@ -35,17 +40,24 @@ function validarInput(input, regex) {
 
   input.classList.toggle("form-input-success", valido);
   input.classList.toggle("form-input-danger", !valido);
+}
 
-  btnLogin.disabled = !valido;
-  btnLogin2.disabled = !valido;
+function comprobarBotones() {
+  const userValido = usuario.test(userLogin.value);
+  const passwordValido = password.test(passwordLogin.value);
+
+  btnLogin.disabled = !userValido || !passwordValido;
+  btnLogin2.disabled = !userValido || !passwordValido;
 }
 
 userLogin.addEventListener("input", () => {
   validarInput(userLogin, usuario);
+  comprobarBotones();
 });
 
 passwordLogin.addEventListener("input", () => {
   validarInput(passwordLogin, password);
+  comprobarBotones();
 });
 
 

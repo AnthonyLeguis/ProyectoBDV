@@ -22,6 +22,7 @@
 
 .main{
     height: 100vh;
+    margin: auto;
     background-image: url(/app/public/assets/img/fondo-general.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -93,34 +94,33 @@
     background-color: var(--var-sixth);
     color: var(--var-white);
     letter-spacing: 2px;
-    font-size:larger;
     box-shadow: none;
     border: 2px solid var(--var-ninth); 
 }
 
 .form-input-danger {
-    border: 1.5px solid rgba(255, 255, 255, 0.74);
+    border: inset 1.5px solid rgba(255, 255, 255, 0.74);
     outline: 2px solid rgba(255, 0, 0, 0.904);
     margin: 2px;
   
 }
 
 .form-input-danger:focus {
-    outline: 2px solid rgba(255, 0, 0, 0.904);
     border: 1.5px solid rgba(255, 255, 255, 0.74);
+    outline: 2px solid rgba(255, 0, 0, 0.904);
     
 }
 
 .form-input-success {
     border: 1.5px solid rgba(255, 255, 255, 0.74);
-    outline: 2px solid rgba(0, 202, 0, 0.87);
+    outline: 2px solid rgba(0, 165, 0, 0.753);
     margin: 2px;
 
 }
 
 .form-input-success:focus {
-    outline: 2px solid rgba(0, 202, 0, 0.87);
     border: 1.5px solid rgba(255, 255, 255, 0.74);
+    outline: 2px solid rgba(0, 165, 0, 0.753);
 }
 
 
@@ -166,6 +166,7 @@
 .icon-tabler {
     width: 33px;
     height: 25px;
+    color: var(--var-white);
 }
 
 
@@ -205,6 +206,7 @@ figure {
     .main {
         flex-direction: column;
         justify-content: space-around;
+        background-position: 5% 5%;
     }
 
     .div-titulo {
@@ -248,6 +250,8 @@ figure {
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 10px;
+        background-position: 5% 5%;
+
     }
 
     .div-titulo {
@@ -363,6 +367,11 @@ figure {
 }
 
 @media (max-width: 480px) {
+
+    .main {
+        justify-content: space-around;
+        padding-top: 0px;
+    }
     
     .div-titulo {
         margin: 40px 0 15px 0;
