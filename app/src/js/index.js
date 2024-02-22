@@ -31,8 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-const usuario = /^[a-zA-Z0-9]+$/;
-const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/;
+
+const usuario = /^[a-zA-Z0-9]+$/; 
+const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/; // Expresión regular para la contraseña
 
 function validarInput(input, regex) {
   const valor = input.value;
@@ -50,6 +51,7 @@ function comprobarBotones() {
   btnLogin2.disabled = !userValido || !passwordValido;
 }
 
+
 userLogin.addEventListener("input", () => {
   validarInput(userLogin, usuario);
   comprobarBotones();
@@ -60,6 +62,7 @@ passwordLogin.addEventListener("input", () => {
   comprobarBotones();
 });
 
+
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -67,7 +70,6 @@ formulario.addEventListener("submit", (event) => {
   const password = passwordLogin.value.trim();
 
   if (userName === "admin01" && password === "Prueba123*") {
-
 
     mensajeLogin.classList.remove("d-none"); 
     mensajeLogin.classList.add("alert-success"); 
@@ -79,16 +81,16 @@ formulario.addEventListener("submit", (event) => {
       window.location.href = "/app/src/views/AdminPanel/admin.html";
     }, 2000);
 
-
-
   } else {
     mensajeLogin.classList.remove("d-none"); 
     mensajeLogin.classList.add("alert-danger"); 
     mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
     mensajeLogin.querySelector("p").textContent = "Usuario o contraseña incorrectos.";
 
+    formulario.reset();
+
   }
-});
+})
 
 
 
