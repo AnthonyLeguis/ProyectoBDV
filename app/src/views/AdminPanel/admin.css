@@ -43,7 +43,10 @@ body {
 }
 
 .main{
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 1000px;
     width: 100%;
     overflow: hidden;
     transition: all 0.40s ease-in-out;
@@ -53,7 +56,13 @@ body {
     background-attachment: fixed;
     background-position: 99% 2%;
     padding: 0;
+    margin: auto 0;
+}
+
+.header {
+    height: 230px;
     margin: 0;
+    padding: 0;
 }
 
 .titulo {
@@ -79,13 +88,14 @@ body {
 
 .wrapper {
     display: flex;
+    margin-top: 0;
 }
 
 #sidebar {
     width: 80px;
     min-width: 70px;
-    height: 600px;
-    max-height: 600px;
+    height: 450px;
+    max-height: 450px;
     z-index: 100;
     transition: all .35s ease-in-out;
     display: flex;
@@ -99,9 +109,9 @@ body {
 #sidebar.expand {
     width: 290px;
     min-width: 290px;
-    height: 600px;
+    height: 500px;
     max-height: 600px;
-
+    overflow: hidden;
 }
 
 #toggle-btn {
@@ -200,15 +210,16 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
+
 .main-content-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px 280px;
+    grid-template-rows: 250px 230px;
     grid-template-areas: 
         "card-dash-1 card-dash-2 card-dash-3"
         "card-dash-1 card-dash-4 card-dash-4"
         ;
-    height: 600px;
+    height: 450px;
         
 }
 
@@ -226,7 +237,7 @@ a.sidebar-link:hover {
 
 .main-content-cards .card-dash-4 {
     grid-area: card-dash-4;
-    height: 250px;
+    height: 220px;
     margin: auto 0;
 }
 
