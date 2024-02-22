@@ -60,6 +60,36 @@ passwordLogin.addEventListener("input", () => {
   comprobarBotones();
 });
 
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const userName = userLogin.value.trim();
+  const password = passwordLogin.value.trim();
+
+  if (userName === "admin01" && password === "Prueba123*") {
+
+
+    mensajeLogin.classList.remove("d-none"); 
+    mensajeLogin.classList.add("alert-success"); 
+    mensajeLogin.querySelector("strong").textContent = "Autenticado";
+    mensajeLogin.querySelector("p").textContent = "cargando...";
+    mensajeLogin.querySelector("button").classList.add('d-none');
+
+    setTimeout(() => {
+      window.location.href = "/app/src/views/AdminPanel/admin.html";
+    }, 2000);
+
+
+
+  } else {
+    mensajeLogin.classList.remove("d-none"); 
+    mensajeLogin.classList.add("alert-danger"); 
+    mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
+    mensajeLogin.querySelector("p").textContent = "Usuario o contraseña incorrectos.";
+
+  }
+});
+
 
 
 
