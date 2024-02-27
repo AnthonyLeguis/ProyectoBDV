@@ -23,7 +23,7 @@
 .main{
     height: 100vh;
     margin: auto;
-    background-image: url(/app/public/assets/img/fondo-general.png);
+    background-image: url(/assets/img/fondo-general.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
