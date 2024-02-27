@@ -13,7 +13,7 @@ dotenv.config({path: './env/.env'});
 
 
 // directorio public
-app.use('/resources', express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //Motor de plantilla
 app.set('view engine', 'ejs');

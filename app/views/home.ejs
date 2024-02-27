@@ -19,18 +19,19 @@
 
             </div>
 
-            <form id="form" class="form-content row g-1  col-md-12 p-3">
+            <form action="auth" method="post" id="form" class="form-content row g-1  col-md-12 p-3">
 
                 <div class="input-group mb-1 col-8 col-md-10 container-fluid">
                     <span class="form-span form-span-text input-group-text col-4 span-form" id="fom-usuario">USER</span>
                     <span class="form-span form-span-icon input-group-text col-4 span-form" id="fom-usuario-icon">
-                      <svg class="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <svg class="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" 
+                            stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                         </svg>
                     </span>
-                    <input type="text" id="input-user" class="form-input form-control input-group-lg" aria-label="Username" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" 
+                    <input type="text" id="input-user" required placeholder="usuario" class="form-input form-control input-group-sm" aria-label="Username" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" 
                     data-bs-title="no debe contener espacios, solo letras y números">
                 </div>
 
@@ -49,6 +50,8 @@
                         </svg></span>
 
                     <input type="password" id="input-password"
+                        required
+                        placeholder="contraseña"
                         class="form-input form-password form-control input-group-lg" aria-label="password" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" 
                         data-bs-title="Tu contraseña debe tener entre 8 y 16 caracteres; debe incluir letras mayúsculas, minúsculas, números y símbolos">
                 </div>
