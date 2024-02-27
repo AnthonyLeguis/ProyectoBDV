@@ -2,10 +2,10 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js",
-    "start": "node index.js",
+    "dev": "nodemon --exec babel-node app.js",
+    "start": "node app.js",
     "build": "webpack --config webpack.prod.config.js"
   },
   "keywords": [],
