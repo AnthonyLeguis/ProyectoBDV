@@ -1,17 +1,27 @@
 const vistaPrincipal = (req, res) => {
-    res.render('home')
-}
+    const ruta = req.path;
 
-const vistaAdmin = (req, res) => {
-    res.render('admin')
-}
-
-const vistaTables = (req, res) => {
-    res.render('tables')
-}
+    if (ruta === '/') {
+        res.render('home', {
+            layout: 'main',
+            contenido: {
+                titulo: 'Página principal',
+                contenido: 'Este es el contenido de la página principal.'
+            }
+        });
+    } else if (ruta === '/login') {
+        res.render('login', {
+            layout: 'login',
+            contenido: {
+                titulo: 'Iniciar sesión',
+                contenido: 'Formulario de inicio de sesión.'
+            }
+        });
+    } else {
+        res.send('Ruta no válida');
+    }
+};
 
 module.exports = {
     vistaPrincipal,
-    vistaAdmin,
-    vistaTables
-}
+};

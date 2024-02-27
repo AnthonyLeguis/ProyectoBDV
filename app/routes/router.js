@@ -1,9 +1,10 @@
 const express = require('express');
-const {vistaPrincipal, vistaAdmin, vistaTables} = require('../controllers/PageControllers');
+const { vistaPrincipal } = require('../controllers/PageControllers');
 const router = express.Router();
 
 router.get('/', vistaPrincipal);
-router.get('/admin', vistaAdmin);
-router.get('/tables', vistaTables);
+router.get('/login', vistaPrincipal);
 
-module.exports = { routs: router };
+// Aca se pueden agregar mas rutas
+
+module.exports = { routes: router };
