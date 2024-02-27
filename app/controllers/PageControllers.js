@@ -9,19 +9,18 @@ const vistaPrincipal = (req, res) => {
                 contenido: 'Este es el contenido de la página principal.'
             }
         });
-    } else if (ruta === '/login') {
-        res.render('login', {
-            layout: 'login',
-            contenido: {
-                titulo: 'Iniciar sesión',
-                contenido: 'Formulario de inicio de sesión.'
-            }
-        });
     } else {
         res.send('Ruta no válida');
     }
 };
 
+const vistaAdminPanel = (req, res) => {
+    res.render('adminPanel', {
+      layout: 'adminPanel'
+    });
+};
+
 module.exports = {
     vistaPrincipal,
+    vistaAdminPanel
 };

@@ -78,7 +78,7 @@ formulario.addEventListener("submit", (event) => {
     mensajeLogin.querySelector("button").classList.add('d-none');
 
     setTimeout(() => {
-      window.location.href = "/admin";
+      window.location.href = "/adminPanel";
     }, 2000);
 
   } else {

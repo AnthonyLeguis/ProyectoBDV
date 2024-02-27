@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <link rel="icon" type="image/x-icon" href="assets/img/SMGI.ico">
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <title>Admin Panel SMGI</title>
+</head>
+<body>
+    <main class="row main container-fluid col-12">
+        <header class="col-12 header">
+            
+            <h1 class="titulo text-white text-center mt-5 mb-3">PANEL DE CONTROL</h1>
+            
+            <figure class="text-center ">
+                <a href="./adminPanel" type="button" class="figure-home-a">
+                    <img src="/assets/img/SMGI-bg-transparent.png" alt="Logo_sistema"
+                    class="figure-home rounded-circle ">
+                </a>
+            </figure>
+
+        </header>
+
+        <div class="wrapper col-12 mt-4 p-0 ">
+
+                <aside id="sidebar">
+                    <div class="d-flex p-1">
+                        <button id="toggle-btn" type="button">
+                            <i class="lni lni-grid-alt"></i>
+                        </button>
+                        <div class="sidebar-logo">
+                            <a href="#">Admin Panel</a>
+                        </div>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-user"></i>
+                                <span>Administrador</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link has-dropdown collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                                <i class="lni lni-grid"></i>
+                                <span>Configurar Dashboard</span>
+                            </a>
+                            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Crear Agente</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">Gestionar Usuario</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link has-dropdown collapsed" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                                <i class="lni lni-protection"></i>
+                                <span>Datos</span>
+                            </a>
+                            <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                                        Parámetros del sistema
+                                    </a>
+                                    <ul id="multi-two" class="sidebar-dropdown has-dropdown collapsed">
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 1</a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-popup"></i>
+                                <span>Notificacion de Eventos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="lni lni-layers"></i>
+                                <span>Estado del Sistema</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="sidebar-footer">
+                        <a href="/" class="sidebar-link">
+                            <i class="lni lni-exit"></i>
+                            <span>Salir</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <div class="main-content-cards row text-white text-center gap-2 mx-auto">
+  
+                    <%- include('adminPanelMain.ejs') %>
+    
+                </div>
+
+        </div>
+        
+    </main>
+    
+    <script type="text/javascript" src="/assets/js/jquery/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/popper/popper.min.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/admin.js"></script>

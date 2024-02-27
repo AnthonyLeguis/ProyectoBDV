@@ -7,7 +7,7 @@ hamburguer.addEventListener('click', () => {
 });
 
 function isLargeScreen() {
-    return window.innerWidth >= 950;
+    return window.innerWidth >= 1600;
   }
   
   function expandSidebar() {

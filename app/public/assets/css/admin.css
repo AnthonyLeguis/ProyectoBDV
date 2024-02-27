@@ -40,6 +40,8 @@ h1 {
 
 body {
     font-family: 'Poppins', sans-serif;
+    width: 100%;
+    min-width: 385px;
 }
 
 .main{
@@ -48,7 +50,6 @@ body {
     flex-wrap: nowrap;
     height: 1000px;
     width: 100%;
-    overflow: hidden;
     transition: all 0.40s ease-in-out;
     background-image: url(/assets/img/fondo-general.png);
     background-repeat: no-repeat;
@@ -57,6 +58,7 @@ body {
     background-position: 99% 2%;
     padding: 0;
     margin: auto 0;
+    
 }
 
 .header {
@@ -92,6 +94,7 @@ body {
 }
 
 #sidebar {
+    
     width: 80px;
     min-width: 70px;
     height: 450px;
@@ -101,17 +104,20 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--var-fourth);
+    border: 3px solid var(--var-fifth-text);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
+    transition: all 500ms ease-in-out;
 }
 
 #sidebar.expand {
+    position: absolute;
     width: 290px;
     min-width: 290px;
     height: 500px;
     max-height: 600px;
     overflow: hidden;
+    background-color: var(--var-gray-light);
 }
 
 #toggle-btn {
@@ -179,7 +185,6 @@ a.sidebar-link:hover {
     position: absolute;
     top: 0;
     left: 70px;
-    background-color: #0e2238;
     padding: 0;
     min-width: 15rem;
     display: none;
@@ -213,132 +218,184 @@ a.sidebar-link:hover {
 
 .main-content-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, 3, 1fr);
     grid-template-rows: 250px 230px;
     grid-template-areas: 
         "card-dash-1 card-dash-2 card-dash-3"
         "card-dash-1 card-dash-4 card-dash-4"
         ;
-    height: 450px;
-        
+    height: 100%;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: hidden;
+
 }
 
 .main-content-cards .card-dash-1 {
+    width: 100%;
+    min-width: 280px;
     grid-area: card-dash-1;
 }
 
 .main-content-cards .card-dash-2 {
     grid-area: card-dash-2;
+    width: 100%;
+    min-width: 330px;
 }
 
 .main-content-cards .card-dash-3 {
     grid-area: card-dash-3;
+    width: 100%;
+    min-width: 330px;
 }
 
 .main-content-cards .card-dash-4 {
     grid-area: card-dash-4;
-    height: 220px;
+    height: 100%;
     margin: auto 0;
 }
 
-@media (max-width: 940px) {
-
-    .main-content-cards {
-        display: grid;
-        grid-template-columns: 250px 1fr 1fr;
-        grid-template-rows: 250px  250px;
-        grid-template-areas: 
-            "card-dash-1 card-dash-2 card-dash-3"
-            "card-dash-1 card-dash-4 card-dash-4"
-            ;
-        height: auto;     
-        margin: 0 auto;
-    }
-
-    .card-dash-4 {
-        width: 550px;
-        margin: 0 auto;
-    }
+.main-content-cards::-webkit-scrollbar {
+    width: 25px;
+    background-color: transparent;
 }
 
-@media (max-width: 780px) {
-
-    .main {
-        height: 100%;
-    }
-
-    .wrapper {
-        height: 100%;
-    }
-
-    .main-content-cards {
-        display: grid;
-        grid-template-columns: 280px 280px;
-        grid-template-rows: 220px  220px;
-        grid-template-areas: 
-            "card-dash-1 card-dash-2"
-            "card-dash-1 card-dash-3"
-            "card-dash-4  card-dash-4"
-            ;
-        height: auto;     
-        margin: 0 auto;
-    }
-
-    .card-dash-4 {
-        width: 500px;
-        margin: 0 auto;
-    }
+.main-content-cards::-webkit-scrollbar-thumb {
+    border: 10px solid transparent;
+    box-shadow: none;
+    border-radius: 40px;
 }
 
-@media (max-width: 740px) {
+.main-content-cards::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 10px var(--var-third);
+}
+
+.main-content-cards:hover::-webkit-scrollbar-thumb:hover {
+    border: 8px solid transparent;
+    box-shadow: inset 0 0 0 10px var(--var-first);
+}
+
+.main-content-cards::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 40px 0;
+}
+
+@media (max-width: 950px) {
     .main {
         height: 100%;
-    }
-
-    .wrapper {
-        height: 100%;
-        scrollbar-width: 2px;
+        overflow-x: hidden;
     }
 
     .main-content-cards {
         display: grid;
-        grid-template-columns: 200px 200px;
-        grid-template-rows: 220px  220px;
+        grid-template-columns: auto-fill;
+        grid-template-rows: auto;
         grid-template-areas: 
             "card-dash-1 card-dash-2"
-            "card-dash-1 card-dash-3"
-            "card-dash-4  card-dash-4"
+            "card-dash-3 card-dash-4"
             ;
-        height: auto;     
+        height: 100%;
+        padding: 0 20px;
+        width: 100%;
+        min-width: auto;
+        margin: 10px 0;
     }
 
-    .card-dash-4 {
-        width: 400px;
+    .main-content-cards .card-dash-1 {
+        grid-area: card-dash-1;
+        width: 100%;
+        min-width: 300px;
+        max-width: 450px;
+        min-height: 250px;
         margin: 0 auto;
     }
+    
+    .main-content-cards .card-dash-2 {
+        grid-area: card-dash-2;
+        width: 100%;
+        min-height: 250px;
+        min-width: 300px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .main-content-cards .card-dash-3 {
+        grid-area: card-dash-3;
+        width: 100%;
+        min-height: 250px;
+        min-width: 300px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .main-content-cards .card-dash-4 {
+        grid-area: card-dash-4;
+        height: 100%;
+        min-height: 250px;
+        min-width: 300px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
 }
 
 @media (max-width: 450px) {
-
     .main {
-        height: 100%;
-    }
-
-    .wrapper {
         height: 100%;
     }
 
     .main-content-cards {
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 200px  200px 200px 200px;
+        grid-template-columns: auto-fill;
+        grid-template-rows: auto;
         grid-template-areas: 
-            "card-dash-1 "
-            "card-dash-2 "
-            "card-dash-3 "
-            "card-dash-4 "
+            "card-dash-1"
+            "card-dash-2"
+            "card-dash-3"
+            "card-dash-4"
             ;
-        height: auto;
-            
+        height: 100%;
+        padding: 0 20px;
+        width: 100%;
+        min-width: auto;
+        margin: 30px 0;
     }
+
+    .main-content-cards .card-dash-1 {
+        grid-area: card-dash-1;
+        width: 100%;
+        min-width: 200px;
+        max-width: 450px;
+        min-height: 250px;
+        margin: 0 auto;
+    }
+    
+    .main-content-cards .card-dash-2 {
+        grid-area: card-dash-2;
+        width: 100%;
+        min-height: 250px;
+        min-width: 200px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .main-content-cards .card-dash-3 {
+        grid-area: card-dash-3;
+        width: 100%;
+        min-height: 250px;
+        min-width: 200px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .main-content-cards .card-dash-4 {
+        grid-area: card-dash-4;
+        height: 100%;
+        min-height: 250px;
+        min-width: 200px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
 }
