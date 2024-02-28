@@ -1,11 +1,11 @@
 const nombreInput = document.getElementById('nameRegistro');
 const passwordInput = document.getElementById('passwordRegistro');
+const UsuarioInput = document.getElementById('usuarioRegistro');
 const btnRegistrar = document.querySelector('button[type="submit"]');
 const formularioRegistro = document.getElementById('formRegistro');
-document.getElementById('usuarioRegistro').value
 
-const nombreRegex = /^[a-zA-Z0-9]+$/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+const nombreRegex = /^[a-zA-Z0-9]+$/; 
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/;
 
 function mostrarError(mensaje) {
     const respuestaFormulario = document.getElementById('respuestaFormulario');
@@ -34,19 +34,31 @@ function validarUsuario(nombre, password) {
     return true;
 }
 
+UsuarioInput.addEventListener('change', (event) => {
+    const usuarioSeleccionado = event.target.value;
+    (usuarioSeleccionado)
+});
+
 btnRegistrar.addEventListener('click', (event) => {
     event.preventDefault();
+  
+    const usuarioRegistro = UsuarioInput.value;
+    const nameRegistro = nombreInput.value;
+    const passwordRegistro = passwordInput.value;
+  
+    const data = {
+      nameRegistro,
+      passwordRegistro,
+      usuarioRegistro,
+    };
 
-    const nombre = nombreInput.value;
-    const password = passwordInput.value;
-
-    const mensajeValidacion = validarUsuario(nombre, password);
+    const mensajeValidacion = validarUsuario(nameRegistro, passwordRegistro);
 
     if (mensajeValidacion !== true) {
         mostrarError(mensajeValidacion);
         setTimeout(() => {
           formularioRegistro.reset();
-        }, 2000);
+        }, 500);
         return;
     }
 

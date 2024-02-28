@@ -16,14 +16,14 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 document.addEventListener('DOMContentLoaded', () => {
 
   function showElements() {
-      
+
     setTimeout(() => {
-        mostrarContenido.classList.add('visible');
+      mostrarContenido.classList.add('visible');
     }, 500);
-    
+
     setTimeout(() => {
-        moverDivForm.classList.add('visible');
-        moverDivFigure.classList.add('visible');
+      moverDivForm.classList.add('visible');
+      moverDivFigure.classList.add('visible');
     }, 550);
   };
 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const usuario = /^[a-zA-Z0-9]+$/; 
+const usuario = /^[a-zA-Z0-9]+$/;
 const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*()]{8,16}$/; // Expresión regular para la contraseña
 
 function validarInput(input, regex) {
@@ -63,34 +63,56 @@ passwordLogin.addEventListener("input", () => {
 });
 
 
-formulario.addEventListener("submit", (event) => {
+formulario.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const userName = userLogin.value.trim();
-  const password = passwordLogin.value.trim();
+  const name = userLogin.value;
+  const pass = passwordLogin.value;
 
-  if (userName === "admin01" && password === "Prueba123*") {
+  try {
+    const response = await fetch('/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, pass })
+    });
 
-    mensajeLogin.classList.remove("d-none"); 
-    mensajeLogin.classList.add("alert-success"); 
-    mensajeLogin.querySelector("strong").textContent = "Autenticado";
-    mensajeLogin.querySelector("p").textContent = "cargando...";
-    mensajeLogin.querySelector("button").classList.add('d-none');
+    if (response.ok) {
+      const responseData = await response.json();
+      const mensaje = responseData.mensaje;
+      mensajeLogin.classList.remove("d-none");
+      mensajeLogin.classList.add("alert-success");
+      mensajeLogin.querySelector("strong").textContent = mensaje;
+      mensajeLogin.querySelector("p").textContent = "Cargando...";
+
+      setTimeout(() => {
+        window.location.href = "/adminPanel";
+      }, 2000);
+
+    } else {
+      const errorData = await response.json();
+      mensajeLogin.classList.remove("d-none");
+      mensajeLogin.classList.add("alert-danger");
+      mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
+      mensajeLogin.querySelector("p").textContent = errorData.mensaje;
+
+      setTimeout(() => {
+        location.reload();
+      }, 1500);
+    }
+  } catch (error) {
+    console.error("Error durante la autenticación:", error);
+    mensajeLogin.classList.remove("d-none");
+    mensajeLogin.classList.add("alert-danger");
+    mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
+    mensajeLogin.querySelector("p").textContent = "verifique sus credenciales";
 
     setTimeout(() => {
-      window.location.href = "/adminPanel";
+      location.reload();
     }, 2000);
-
-  } else {
-    mensajeLogin.classList.remove("d-none"); 
-    mensajeLogin.classList.add("alert-danger"); 
-    mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
-    mensajeLogin.querySelector("p").textContent = "Usuario o contraseña incorrectos.";
-
-    formulario.reset();
-
   }
-})
+});
 
 
 

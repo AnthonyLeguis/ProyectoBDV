@@ -2,12 +2,12 @@ const express = require('express');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const router = require('./routes/router');
-const Swal = require('sweetalert2');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 const dotenv = require('dotenv');
 dotenv.config({path: './env/.env'});
@@ -34,6 +34,7 @@ app.use(session({
 
 // Modulo de conexion a la bd
 const connection = require('./database/db');
+const { log } = require('console');
 
 //Uso del router
 app.use(router.routes);
@@ -62,6 +63,28 @@ app.post('/register', async (req, res) => {
       }
 
     });
+});
+
+//Autenticacion
+app.post('/auth', async (req, res) => {
+    const name = req.body.name;
+    const pass = req.body.pass;
+
+    let passwordHash = await bcryptjs.hash(pass, 8);
+        if(name && pass){
+            connection.query('SELECT * FROM smgi.login_users WHERE name = ?', [name], async (error, results) => {
+                if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+                    res.send({mensaje: 'USUARIO Y/O PASSWORD INCORRECTAS'});
+                }else{
+                    req.session.name = results[0].name;
+                    req.session.loggedin = true;
+                    res.send({mensaje: 'LOGIN CORRECTO'});
+
+                }
+            })
+        } else {
+            res.send({mensaje: 'Por favor ingrese un usuario y/o contraseña'})
+        }
 });
 
 

@@ -19,7 +19,7 @@
 
             </div>
 
-            <form action="auth" method="post" id="form" class="form-content row g-1  col-md-12 p-3">
+            <form action="/auth" method="post" id="form" class="form-content row g-1  col-md-12 p-3">
 
                 <div class="input-group mb-1 col-8 col-md-10 container-fluid">
                     <span class="form-span form-span-text input-group-text col-4 span-form" id="fom-usuario">USER</span>
@@ -38,9 +38,11 @@
                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                         </svg>
                     </span>
-                    <input type="text" 
+                    <input type="text"
+                        name="name"
                         id="input-user" 
-                        required placeholder="usuario" 
+                        required 
+                        placeholder="usuario" 
                         class="form-input form-control input-group-sm" 
                         aria-label="Username" 
                         data-bs-toggle="tooltip" 
@@ -73,6 +75,7 @@
                     <input type="password" id="input-password"
                         required
                         placeholder="contraseña"
+                        name="contrasena"
                         class="form-input form-password form-control input-group-lg" 
                         aria-label="password" 
                         data-bs-toggle="tooltip" 
@@ -96,6 +99,7 @@
                         class="form-btn-text btn btn-primary login fw-bold text-white text-center mx-auto col-6">
                         LOGIN
                     </button>
+                    
                     <button type="submit"
                         id="btn-login2"
                         disabled
