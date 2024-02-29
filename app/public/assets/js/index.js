@@ -78,7 +78,7 @@ formulario.addEventListener("submit", async (event) => {
       body: JSON.stringify({ name, pass })
     });
 
-    if (response.ok) {
+    if (response.status === 200) {
       const responseData = await response.json();
       const mensaje = responseData.mensaje;
       mensajeLogin.classList.remove("d-none");
@@ -97,7 +97,7 @@ formulario.addEventListener("submit", async (event) => {
       mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
       mensajeLogin.querySelector("p").textContent = data.mensaje;
 
-      // Redirección a la página de login
+      // Redirection to the login page
       setTimeout(() => {
         redirectToLogin();
       }, 2500);

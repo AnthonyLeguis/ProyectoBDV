@@ -74,13 +74,13 @@ app.post('/auth', async (req, res) => {
         } else {
           req.session.name = results[0].name;
           req.session.loggedin = true;
-          res.send({ mensaje: 'LOGIN CORRECTO' });
+          res.status(200).send({ mensaje: 'LOGIN CORRECTO' });
         }
       });
     } else {
       res.send({ mensaje: 'Por favor ingrese un usuario y/o contraseña' });
     }
-  });
+});
 
 //session
 app.get('/', (req, res) => {
