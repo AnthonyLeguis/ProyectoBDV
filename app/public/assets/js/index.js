@@ -90,29 +90,38 @@ formulario.addEventListener("submit", async (event) => {
         window.location.href = "/adminPanel";
       }, 2000);
 
-    } else {
-      const errorData = await response.json();
+    } else if (response.status === 401) {
+      const data = await response.json();
       mensajeLogin.classList.remove("d-none");
       mensajeLogin.classList.add("alert-danger");
       mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
-      mensajeLogin.querySelector("p").textContent = errorData.mensaje;
+      mensajeLogin.querySelector("p").textContent = data.mensaje;
 
+      // Redirección a la página de login
       setTimeout(() => {
-        location.reload();
-      }, 1500);
+        redirectToLogin();
+      }, 2000);
+
+    } else {
+      // Manejar otros errores
+      console.error("Error inesperado:", response.status, await response.text());
+      mensajeLogin.classList.remove("d-none");
+      mensajeLogin.classList.add("alert-danger");
+      mensajeLogin.querySelector("strong").textContent = "Error";
+      mensajeLogin.querySelector("p").textContent = "Ha ocurrido un error inesperado.";
     }
   } catch (error) {
     console.error("Error durante la autenticación:", error);
     mensajeLogin.classList.remove("d-none");
     mensajeLogin.classList.add("alert-danger");
-    mensajeLogin.querySelector("strong").textContent = "Error de autenticación";
-    mensajeLogin.querySelector("p").textContent = "verifique sus credenciales";
-
-    setTimeout(() => {
-      location.reload();
-    }, 2000);
+    mensajeLogin.querySelector("strong").textContent = "Error";
+    mensajeLogin.querySelector("p").textContent = "Ha ocurrido un error inesperado.";
   }
 });
+
+function redirectToLogin() {
+  window.location.href = "/";
+}
 
 
 

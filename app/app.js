@@ -65,23 +65,22 @@ app.post('/register', async (req, res) => {
 app.post('/auth', async (req, res) => {
     const name = req.body.name;
     const pass = req.body.pass;
-
-    let passwordHash = await bcryptjs.hash(pass, 8);
-        if(name && pass){
-            connection.query('SELECT * FROM smgi.login_users WHERE name = ?', [name], async (error, results) => {
-                if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
-                    res.send({mensaje: 'USUARIO Y/O PASSWORD INCORRECTAS'});
-                }else{
-                    req.session.name = results[0].name;
-                    req.session.loggedin = true;
-                    res.send({mensaje: 'LOGIN CORRECTO'});
-
-                }
-            })
+  
+    if (name && pass) {
+      connection.query('SELECT * FROM smgi.login_users WHERE name = ?', [name], async (error, results) => {
+        if (results.length === 0 || !(await bcryptjs.compare(await bcryptjs.hash(pass, 8), results[0].pass))) {
+          res.status(401).send({ mensaje: 'USUARIO Y/O PASSWORD INCORRECTAS'});
+          return;
         } else {
-            res.send({mensaje: 'Por favor ingrese un usuario y/o contraseña'})
+          req.session.name = results[0].name;
+          req.session.loggedin = true;
+          res.send({ mensaje: 'LOGIN CORRECTO' });
         }
-});
+      });
+    } else {
+      res.send({ mensaje: 'Por favor ingrese un usuario y/o contraseña' });
+    }
+  });
 
 //session
 app.get('/', (req, res) => {
