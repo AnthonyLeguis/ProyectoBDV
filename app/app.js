@@ -39,10 +39,6 @@ const { log } = require('console');
 //Uso del router
 app.use(router.routes);
 
-app.get('/register', (req,res) => {
-    res.render('registerLayout');
-})
-
 //Registros
 app.post('/register', async (req, res) => {
     const user = req.body.usuarioRegistro;
@@ -86,6 +82,27 @@ app.post('/auth', async (req, res) => {
             res.send({mensaje: 'Por favor ingrese un usuario y/o contraseña'})
         }
 });
+
+//session
+app.get('/', (req, res) => {
+    if(req.session.loggedin){
+        res.render('adminPanel', {
+            login: true,
+            name: req.session.name
+        });
+    } else {
+        res.render('adminPanel', {
+            login: false,
+            name: 'Debe iniciar sesion'
+        })
+    }
+})
+
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/')
+    })
+})
 
 
 app.listen(3000, (req, res)=> {
