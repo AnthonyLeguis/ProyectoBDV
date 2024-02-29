@@ -100,7 +100,7 @@ formulario.addEventListener("submit", async (event) => {
       // Redirección a la página de login
       setTimeout(() => {
         redirectToLogin();
-      }, 2000);
+      }, 2500);
 
     } else {
       // Manejar otros errores
