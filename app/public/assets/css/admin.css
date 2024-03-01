@@ -7,7 +7,8 @@
     --var-second: #c4003b;
     --var-third: #9e9e9ec7;
     --var-fourth: #f3f3f3c7;
-    --var-fourth-text: #f3f3f3;
+    --var-fourth-dash: #bcbcbc;
+    --var-fourth-text: #a1a1a1;
     --var-fifth: #d3314f;
     --var-fifth-text: #880019;
     --var-sixth: #E43252;
@@ -218,8 +219,7 @@ a.sidebar-link:hover {
 
 .main-content-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 3, 1fr);
-    grid-template-rows: 250px 230px;
+    grid-template-rows: 300px 300px;
     grid-template-areas: 
         "card-dash-1 card-dash-2 card-dash-3"
         "card-dash-1 card-dash-4 card-dash-4"
@@ -242,6 +242,8 @@ a.sidebar-link:hover {
     grid-area: card-dash-2;
     width: 100%;
     min-width: 330px;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content-cards .card-dash-3 {

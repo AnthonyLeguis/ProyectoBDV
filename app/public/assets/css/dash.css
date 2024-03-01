@@ -1,0 +1,150 @@
+.chart{
+    background-color: var(--var-fourth-dash);
+
+}
+
+.chart1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.chart1_head {
+    justify-content: space-around;
+}
+
+.titulo-chart-1 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #3300ff;
+}
+
+#chart1_cuenta {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#chart1_fecha {
+    font-weight: bolder;
+}
+
+#chart1_cuenta, #chart1_fecha {
+    color: #3300ff;
+
+}
+
+.icon-awesome {
+    font-size: 1.8rem;
+}
+
+.chart2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart2::before {
+    content: "78%";
+    font-size: 1.7rem;
+    font-weight: bolder;
+    color: #3300ff;
+    position: absolute;
+    left: 48%;
+    display: block;
+    bottom: 51%;
+}
+
+#myChart2 {
+    max-width: 250px;
+    max-height: 250px;
+    position: relative;
+}
+
+.chart3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+#myChart3 {
+    max-width: 250px;
+    max-height: 200px;
+    position: relative;
+}
+
+.titulo-chart2 {
+    color: #3300ff;
+    font-weight: bolder;
+}
+
+.chart3_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.medidas-chart3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.medidas-chart3 h3 {
+    font-size: 1rem;
+    color: #3300ff;
+    font-weight: bolder;
+    margin-bottom: 1px;
+
+}
+
+.medidas-chart3 p {
+    height: auto;
+    font-size: 0.7rem;
+    color: #3300ff;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.icon-content-chart3 {
+    width: 28px;
+    height: 28px;
+    background: lightblue; 
+    border-radius: 100%; 
+    padding: 0.5px
+}
+
+.chart4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart4_header {
+    margin-top: 10px;
+}
+
+.chart4_header h3, .chart4_footer h3 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #3300ff;
+    
+}
+
+#myChart4 {
+    max-width: 550px;
+    max-height: 210px;
+}
+
+.chart4_footer h3 {
+    margin: 10px 0;
+}
+
+
